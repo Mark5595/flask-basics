@@ -3,6 +3,7 @@ Purpose: gain familiarity
 
 '''
 from flask import Flask
+from flask import render_template #allows us to access/use the templates
 #from flask import request #Flask global that represents the request that the client has made to your application. This contains things like cookies, the path, and, in our usage, the query string.
 
 app = Flask(__name__) #use whatever the current namespace is
@@ -22,7 +23,7 @@ def index(name='Mark'):
 
     '''
 
-    return 'Hello World, I <3 ' + name
+    return render_template('index.html', name = name)
 
 #when passing arguments via the route url they are of type string unless otherwise specified
 #if something is a typed cased wrong we will get a 404 error
@@ -32,8 +33,7 @@ def index(name='Mark'):
 @app.route('/add/<float:num1>/<int:num2>')
 #function/view to return the sum of the two numbers (either floats or ints) entered
 def add(num1, num2):
-    sum = num1 + num2
-    return '{} + {} = {}'.format(num1, num2, sum) #we can only return stings
+    return render_template("add.html", num1 = num1, num2 = num2)
 
 
 @app.route('/multiply/<int:num1>/<int:num2>')

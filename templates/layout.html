@@ -1,0 +1,20 @@
+<!--Base template, other templates can inheritant  to reduce redonant code
+
+Terms
+% block %: This template tag (as they're called) defines a block in a template. In templates that are extended, these areas are overridable. In templates that extend other templates, this areas will override the parent template's block.
+
+% extends %: This template tag specifies what template is the parent of the current template. Think of it like extended classes in Python. You can have a change of extensions if you need them.
+
+ super(): This function brings in whatever content was in the same block in the parent template. Very handy if you want to include the existing content but you want to insert new content before or after the old.
+ -->
+<!doctype html>
+<html>
+<head>
+  <title>{% block title %} Flask Basics {% endblock %}</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+    <body>
+        {% block content %}{% endblock %}
+        {% block scripts %}{% endblock %}
+    </body>
+</html>
