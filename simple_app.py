@@ -1,5 +1,5 @@
 '''
-Purpose: gain familitaty
+Purpose: gain familiarity
 
 '''
 from flask import Flask
